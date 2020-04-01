@@ -1,0 +1,219 @@
+<html>
+
+<head>
+	<title>Firebase Login</title>
+	<link href="https://fonts.googleapis.com/css?family=Nunito:400,600,700" rel="stylesheet" />
+	<link rel="stylesheet" href="style.css" />
+</head>
+
+<body onscroll="scrollFunction()">
+
+
+	<div id="navbar">
+		<a id="society_name">Society Name</a>
+		<a href="#nav_home_content" id="nav_home" class="nav_item" onclick="nav_select(event, nav_home)">HOME</a>
+		<a href="#contactus_div" id="nav_contactus" class="nav_item" onclick="nav_select(event, nav_contactus)">CONTACT US</a>
+		<a href="#nav_society_details_content" id="nav_society_details" class="nav_item" onclick="nav_select(event, nav_society_details)">SOCIETY
+			DETAILS</a>
+    <button class="signin_button" onclick="signin_on()">Sign In</button>
+	</div>
+
+
+
+	<div id="signin_container">
+      <form class="signin_form_container">
+        <div class="header_container">
+          <a id="signup_header">Sign In</a>
+          <a class="close" onclick="signin_off()">Close</a>
+        </div>
+        <div class="input_container">
+          <p class="label">EMAIL</p>
+          <input type="text" id="signin_email" placeholder="Enter your email" />
+        </div>
+        <div class="input_container">
+          <p class="label">PASSWORD</p>
+          <input
+            type="password"
+            id="signin_pass"
+            placeholder="Enter your password"
+          />
+        </div>
+        <div class="button_container">
+          <button type="button" id="signup_button" onclick="signin()">
+            Sign In
+          </button>
+        </div>
+        <div class="create_here_container">
+          Don't have account?<a id="create_here" onclick="signup_on()">
+            Create Here</a
+          >
+        </div>
+      </form>
+    </div>
+    <div id="signup_container">
+      <form class="form_container">
+        <div class="header_container">
+          <a id="signup_header">Sign Up</a>
+          <a class="close" onclick="signup_off()">Close</a>
+        </div>
+        <div class="input_container">
+          <p class="label">NAME</p>
+          <input type="text" id="signup_name" placeholder="Enter your name" />
+        </div>
+        <div class="input_container">
+          <p class="label">BlOCK AND FLAT NUMBER</p>
+          <input
+            type="text"
+            id="signup_block"
+            placeholder="Enter block number"
+          />/
+          <input type="text" id="signup_flat" placeholder="Enter flat number" />
+        </div>
+        <div class="input_container">
+          <p class="label">NUMBER OF RESIDENTS</p>
+          <button
+            type="button"
+            class="residents_button"
+            onclick="resident_inc()"
+          >
+            +
+          </button>
+          <span id="signup_residents">1</span>
+          <button
+            type="button"
+            class="residents_button"
+            onclick="resident_dec()"
+          >
+            -
+          </button>
+        </div>
+        <div class="input_container">
+          <p class="label">EMAIL</p>
+          <input type="text" id="signup_email" placeholder="Enter your email" />
+        </div>
+        <div class="input_container">
+          <p class="label">PASSWORD</p>
+          <input
+            type="password"
+            id="signup_pass"
+            placeholder="Enter your password"
+          />
+        </div>
+        <div class="input_container">
+          <p class="label">CONFIRM PASSWORD</p>
+          <input
+            type="password"
+            id="signup_cpass"
+            placeholder="Enter password again"
+          />
+        </div>
+        <div class="button_container">
+          <button type="button" id="signup_button" onclick="signup()">
+            SIGN UP
+          </button>
+        </div>
+      </form>
+    </div>
+   
+	<div id="container" >
+
+  
+	<div id="nav_home_content">
+		<div id="carousel_container">
+			<div id="carousel_item1"><img id="carousel" src="assets/a1.jpg"></img></div>
+          <div id="carousel_item2"><p class="home_text">HAVE A LOOK<br>ON SOME PHOTOS</p>
+          <div id="carousel_button_row">
+            <div class="carousel_button" onclick="carousel(true);">&#8249;</div>&nbsp&nbsp&nbsp
+            <div class="carousel_button" onclick="carousel(false);">&#8250;</div>
+            </div></div>
+        </div>
+        <div id="map_container">
+          <div id="map_item1"><p class="home_text">FIND US<br>HERE</p>
+          <div id="map_button_row"><a id="map_button" href="https://goo.gl/maps/znYZTfRGDUj4qrSu7" target="_blank">Go to Maps</a></div>
+          </div>
+          <div id="map_item2"><img id="map" src="assets/map.PNG"></img></div>
+        </div>
+      </div>
+      <div id="contactus_div">
+    <div id="nav_contactus_content">
+      <h2 class="contactus_header">Here's how you can connect with us!</h2>
+      <br />
+      <h3>Address:</h3>
+      <p id="contactus_societyname">,</p>
+      <p id="contactus_near"></p>
+      <p id="contactus_area"></p>
+      <p id="contactus_city"></p>
+      <p id="contactus_pincode"></p>
+      <br />
+       <h3>Contact Details:</h3>
+      <p id="contactus_phone">Contact: 8394928394</p>
+      <p id="contactus_email">Email: society@gmail.com</p>
+    </div>
+  </div>
+  
+  <div id="nav_society_details_content">
+    <p class="table_header">Society Members</p>
+    <table id="nav_members_content">
+      
+  <thead>
+    <tr>
+        <td id="mem_name">Name</td>
+
+        <td id="mem_position">Position</td>
+
+        <td id="mem_number">Number</td>
+      </tr>
+  </thead>
+  <tbody id="mem_body">
+  </tbody>
+</table>
+  <p class="table_header">Vacant Flat List</p>
+    <table id="nav_vacantflats_content">
+      <thead>
+        <tr>
+        <th id="own_name">Name</th>
+
+        <th id="flat_no">Flat number</th>
+
+        <th id="own_number">Phone</th>
+
+        <th id="bhk">Bhk</th>
+      </tr>
+      </thead>
+      <tbody id="vacantflats_body"></tbody>
+    </table>
+  <p class="table_header">Housekeeper List</p>
+    <table id="nav_housekeeperlist_content">
+      <thead>
+      <tr>
+        <th id="hk_name">Name</th>
+
+        <th id="hk_number">Phone</th>
+      </tr>
+      </thead>
+      <tbody id="housekeeper_list_body"></tbody>
+    </table>
+  </div>
+  </div>
+
+    <script src="https://www.gstatic.com/firebasejs/7.9.2/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.9.2/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.9.2/firebase-firestore.js"></script>
+    <script>
+      // Initialize Firebase
+      var db;
+      var firebaseConfig = {
+        apiKey: "AIzaSyCsa0I8ro4WmZclmhLez_wAPJeT4Fm_R3I",
+        authDomain: "studentactivity-54d34.firebaseapp.com",
+        databaseURL: "https://studentactivity-54d34.firebaseio.com",
+        projectId: "studentactivity-54d34",
+        storageBucket: "studentactivity-54d34.appspot.com",
+        messagingSenderId: "648540550509",
+        appId: "1:648540550509:web:b45bc7541ca5fbcb32d664"
+      };
+      var app = firebase.initializeApp(firebaseConfig);
+      db = firebase.firestore(app);
+    </script>
+    <script src="script.js"></script>
+  </body>
+</html>
